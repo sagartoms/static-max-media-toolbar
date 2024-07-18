@@ -9,6 +9,11 @@
         function launchMax() {
             window['maxWindowRef'] = window.open('https://sagartoms.github.io/static-media-toolbar/', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
         } 
+        window.addEventListener("message", (event) => {
+            if (event.data?.direction === "NiceToFusionApp") {
+              window.parent.postMessage(event.data, '*');
+            }
+        });
     </script>
     <title>Document</title>
 </head>
